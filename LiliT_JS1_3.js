@@ -56,34 +56,37 @@ console.log(invObject)
 
 
 
+
+
+
 // Ex 3
 
-
-function sumOfDigits(num){
-    let lastDigit = num % 10;
-    let sum = 0;
-    let number = (num - lastDigit) / 10;
-    if(number < 10){
-        return sum + number + lastDigit;
+function sumOfDigits(number) {
+    let sum = 0
+    while(!number) {
+        let lastDigit = number % 10
+        number = (number - number % 10) / 10
+        sum = sum + lastDigit
     }
-    sum = sum + lastDigit + sumOfDigits(number); 
-    while( sum >= 10){
-        sum = sumOfDigits(sum);
+    if(sum < 10) {
+        return sum
     }
-    return sum;
-} 
+    return sumOfDigits(sum)
+        
+        
+}
 
 
 
 
 // Ex 2
 
-function flatten(arr) {
+function flattening(arr) {
   const result = []
 
   arr.forEach((i) => {
     if (Array.isArray(i)) {
-      result.push(...flatten(i))
+      result.push(...flattening(i))
     } else {
       result.push(i)
     }
