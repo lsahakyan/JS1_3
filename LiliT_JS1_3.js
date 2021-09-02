@@ -63,7 +63,7 @@ console.log(invObject)
 
 function sumOfDigits(number) {
     let sum = 0
-    while(!number) {
+    while(number) {
         let lastDigit = number % 10
         number = (number - number % 10) / 10
         sum = sum + lastDigit
